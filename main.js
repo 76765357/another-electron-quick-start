@@ -9,7 +9,7 @@ const BrowserWindow = electron.BrowserWindow
 const path = require('path')
 const url = require('url')
 
-let openFile = false
+let openFilePath = false
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -46,7 +46,7 @@ app.on('ready', createWindow)
 
 app.on('will-finish-launching', function() {
     app.on('open-file', function(ev, path) {
-        openFile  = path
+        openFilePath  = path
     });
 });
 
@@ -69,13 +69,10 @@ app.on('activate', function () {
 
 // read the file and send data to the render process
 ipcMain.on('get-file-data', function(event) {
-  var data = null
-  if (process.argv.length >= 2) {
-    var openFilePath = process.argv[1]
-    data = openFilePath
+  if (process.platform == 'win32' && process.argv.length >= 2) {
+    openFilePath = process.argv[1]
   }
-  console.log(JSON.stringify(process.argv))
-  event.returnValue = openFile
+  event.returnValue = openFilePath
 })
 
 //创建主菜单菜单

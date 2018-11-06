@@ -5,8 +5,7 @@
 const {ipcRenderer} = require("electron")
 
 var data = ipcRenderer.sendSync('get-file-data')
-console.log('ipcdata:',data)
-console.log('sdoifjaiosfdjs')
+
 if (data ===  null) {
     console.log("There is no file")
 } else {
