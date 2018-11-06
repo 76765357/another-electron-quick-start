@@ -94,10 +94,18 @@
 			"fileAssociations": [
 				{
 					"ext": ["cfs"],
-					"description": "mizhao files",
-					"role": "Viewer"
+					"role": "None"
 				}
 			]
-		}
+		},
+  
+    "win": {
+            "fileAssociations": [
+                {
+                    "ext": ["cfs"],
+                    "description": "mizhao files"
+                }
+            ]
+        }
   }
 }
