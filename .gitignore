@@ -18,3 +18,4 @@ dist
 log/
 node-test/
 yarn.lock
+package-lock.json
